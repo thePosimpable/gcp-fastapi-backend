@@ -19,6 +19,7 @@ class Settings(BaseSettings):
 	POSTGRES_DB: str = os.environ.get('POSTGRES_DB')
 	DATABASE_URL: str = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_SERVER}/{POSTGRES_DB}"
 	TIMEZONE: Any = pytz.timezone('Asia/Singapore')
+	API_V1_STR: str = "/api/v1"
 	
 	class Config:
 		case_sensitive = True
