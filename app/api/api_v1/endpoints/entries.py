@@ -10,10 +10,13 @@ from app.util.shared_funcs import generate_resource_404_message
 router = APIRouter()
 API_RESOURCE: str = 'entry'
 
-@router.get("/", response_model = List[schemas.Entry], status_code = status.HTTP_200_OK)
+@router.get("/", status_code = status.HTTP_200_OK)
 def get_entries(*, db: Session = Depends(deps.get_db)):
 	query = db.query(models.Entry)
-	return query.all()
+	results = query.all()
+	results_parsed = [schemas.EntryDisplay.parse_obj(o.__dict__).dict() for o in results]
+	
+	return results_parsed
 
 @router.get("/{entry_id}", response_model = schemas.Entry, status_code = status.HTTP_200_OK)
 def get_entry(*, db: Session = Depends(deps.get_db), entry_id: int):
