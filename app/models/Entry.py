@@ -18,18 +18,22 @@ from sqlalchemy.sql import func
 
 from app.db.session import Base
 
-class Book(Base):
-	__tablename__ = "books"
+class Entry(Base):
+	__tablename__ = "entries"
 
-	bookId  = Column(Integer, primary_key = True, index = True,)
+	entryId = Column(Integer, primary_key = True, index = True,)
 	title = Column(String)
-	rating = Column(Float)
+	description = Column(String)
+	startDate = Column(Date)
+	endDate = Column(Date)
+	color = Column(String)
+	icon = Column(String)
 
 	createdAt = Column(DateTime(timezone = True), server_default = func.now())
 	updatedAt = Column(DateTime(timezone = True), server_default = func.now(), onupdate = func.now())
 
-	book_id = synonym('bookId')
+	entry_id = synonym('entryId')
+	start_date = synonym('startDate')
+	end_date = synonym('endDate')
 	created_at = synonym('createdAt')
 	updated_at = synonym('updatedAt')
-
-	# author_id = Column(Integer, ForeignKey('author.id'))

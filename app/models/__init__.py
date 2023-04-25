@@ -1,1 +1,1 @@
-from .Book import Book
+from .Entry import Entry

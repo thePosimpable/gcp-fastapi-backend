@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.api.api_v1.endpoints import books
+from app.api.api_v1.endpoints import entries
 
 api_router = APIRouter()
-api_router.include_router(books.router, prefix="/books", tags=["books"])
+api_router.include_router(entries.router, prefix="/entries", tags = ["entries"])
