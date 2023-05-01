@@ -14,9 +14,8 @@ API_RESOURCE: str = 'entry'
 def get_entries(*, db: Session = Depends(deps.get_db)):
 	query = db.query(models.Entry)
 	results = query.all()
-	results_parsed = [schemas.EntryDisplay.parse_obj(o.__dict__).dict() for o in results]
 	
-	return results_parsed
+	return results
 
 @router.get("/{entry_id}", response_model = schemas.Entry, status_code = status.HTTP_200_OK)
 def get_entry(*, db: Session = Depends(deps.get_db), entry_id: int):

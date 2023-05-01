@@ -34,14 +34,3 @@ class EntryCreate(EntryBase):
 
 class Entry(EntryBase):
 	entry_id: int
-
-class EntryDisplay(BaseSchema):
-	entryId: str = Field(alias = "entryId")
-	title: str = Field(alias = "title")
-	details: Optional[str] = Field(alias = "description")
-	start: 'date' = Field(alias = "startDate")
-	end: 'date' = Field(alias = "endDate")
-	bgcolor: Optional[str] = Field(alias = "color")
-	icon: Optional[str] = Field(alias = "icon")
-	createdAt: datetime = Field(alias = "createdAt")
-	updatedAt: datetime = Field(alias = "updatedAt")
