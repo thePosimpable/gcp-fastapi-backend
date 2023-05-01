@@ -38,7 +38,6 @@ starlette==0.26.1
 typing-extensions==4.5.0
 tzdata==2023.3
 ujson==5.7.0
-unknown==0.0.0
 urllib3==1.26.15
 uvicorn==0.21.1
 watchfiles==0.19.0
