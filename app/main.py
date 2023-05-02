@@ -14,4 +14,4 @@ app.add_middleware(
 )
 
 app.include_router(api_router, prefix = settings.API_V1_STR)
-# START SERVER: uvicorn app.main:app --reload
+# START SERVER: uvicorn app.main:app --host 192.168.1.104 --reload
